@@ -1,0 +1,20 @@
+extends layout
+block content
+    cover.cover.sH.sC
+        a#cover.dropAnchor
+        section.container-fluid
+            article.pT6.pB6.row
+                margin.d-none.d-sm-block.col-md-1
+                menu.sC.col-md-5
+                    h1.w1.textAlignCenter 不可解！
+                    h2.exJr.b.diminutive.caps.b.lH1.w1.textAlignCenter=message
+                    p.w3.pT1.initial Error: #{error.status} — 
+                        b.diminutive 深呼吸する。:
+                    code.w3(style='max-height: 25vh; overflow-y: scroll; margin-bottom:1em;') #{error.stack}
+                    small.w1.flex.flexCol.flexAlignStart
+                        a(href='/#cover').w1 ← Return home 
+                gutter.d-none.d-md-block.col-md-1
+                 p.japanese それは決してあなたのせいではありませんでした。
+                logo.d-none.d-sm-none.d-md-flex.sC.p-0.p-lg-4.p-xl-5.col-sm-4
+                    img(src='https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/ePZHpYUJkmdIWqSoDCfnIYbk' alt='The SCXN Logo').w4
+                margin.col-md-1
