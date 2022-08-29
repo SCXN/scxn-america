@@ -145,7 +145,7 @@ function solutions(req,res,next){
 //GET home page
 router.get('/', solutions, function(req, res, next) {
   res.render('index', { 
-    title: 'SCXN Web Design & Publishing',
+    title: `SCXN Web Design & Publishing`,
     description: 'Boutique branding, web strategy, and limited-run souvenirs.  Say more with one-of-a-kind keepsakes and the exotic sports car of websites.',
     openGraphDescription: 'Explore the 7-step solution for successful web publishing.  Stragegize with SCXN.',
     openGraphType:'website',
