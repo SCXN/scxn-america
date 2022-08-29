@@ -150,7 +150,7 @@ router.get('/', solutions, function(req, res, next) {
     openGraphDescription: 'Explore the 7-step solution for successful web publishing.  Stragegize with SCXN.',
     openGraphType:'website',
     openGraphLink:'https://www.scxn.io',
-    openGraphImg:'https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/dLPMyiXzFHfefPONkMXtVxbA'
+    openGraphImg:'/images/index.png'
   });
   next();
 });
@@ -163,7 +163,7 @@ router.get('/news', news, function(req, res) {
     openGraphDescription: res.locals.newsBodies[0],
     openGraphType:'article',
     openGraphLink:'https://www.scxn.io/News',
-    openGraphImg:'https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/IXUkVOfcMugZvTgPDtKnqnMz'
+    openGraphImg:'/images/news.png'
   });
 });
 
@@ -191,7 +191,7 @@ router.get('/solution', solutions, function(req, res) {
     openGraphDescription: '',
     openGraphType:'article',
     openGraphLink:'https://www.scxn.io/Solution',
-    openGraphImg:'https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/olwtrftdlaUumcSjqvaeauKA'
+    openGraphImg:'/images/solution.png'
   });
 });
 
@@ -219,7 +219,7 @@ router.get('/engaging', solutions, function(req, res) {
     openGraphDescription: directions[0],
     openGraphType:'article',
     openGraphLink:'https://www.scxn.io/Engaging',
-    openGraphImg:'https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/GocbmDrEaoBORKQGqczmbqwJ'
+    openGraphImg:'/images/engaging.png'
   });
 });
 
@@ -247,7 +247,7 @@ router.get('/responsive', solutions, function(req, res) {
     openGraphDescription: directions[1],
     openGraphType:'article',
     openGraphLink:'https://www.scxn.io/Responsive',
-    openGraphImg:'https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/wKYBPBcIheuVVKDmFNNAmPXA'
+    openGraphImg:'/images/responsive.png'
   });
 });
 
@@ -275,7 +275,7 @@ router.get('/dynamic', solutions, function(req, res) {
     openGraphDescription: directions[2],
     openGraphType:'article',
     openGraphLink:'https://www.scxn.io/Dynamic',
-    openGraphImg:'https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/qAEMdUBewYOsUVjTnvxKctMZ'
+    openGraphImg:'/images/dynamic.png'
   });
 });
 
@@ -303,7 +303,7 @@ router.get('/semantic', solutions, function(req, res) {
     openGraphDescription: directions[3],
     openGraphType:'article',
     openGraphLink:'https://www.scxn.io/Semantic',
-    openGraphImg:'https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/NEpqvahSGgAgNIQqRKdxTOEY'
+    openGraphImg:'/images/semantic.png'
   });
 });
 
@@ -331,7 +331,7 @@ router.get('/searchable', solutions, function(req, res) {
     openGraphDescription: directions[4],
     openGraphType:'article',
     openGraphLink:'https://www.scxn.io/Searchable',
-    openGraphImg:'https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/YMeBvmSeDieozdpBKEVWJSGy'
+    openGraphImg:'/images/searchable.png'
   });
 });
 
@@ -359,7 +359,7 @@ router.get('/shareable', solutions, function(req, res) {
     openGraphDescription: directions[5],
     openGraphType:'article',
     openGraphLink:'https://www.scxn.io/Shareable',
-    openGraphImg:'https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/cpDZJAQULtaFppojvYgvyLTX'
+    openGraphImg:'/images/shareable.png'
   });
 });
 
@@ -387,7 +387,7 @@ router.get('/easy', solutions, function(req, res) {
     openGraphDescription: directions[6],
     openGraphType:'article',
     openGraphLink:'https://www.scxn.io/Easy',
-    openGraphImg:'https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/YTycjReJTnvCIvMenGIGawGN'
+    openGraphImg:'/images/easy.png'
   });
 });
 
