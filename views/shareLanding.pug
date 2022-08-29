@@ -1,7 +1,3 @@
--let thisURL=`${newsLinks[0]}`;
--let thisTopic=`%E2%9D%9D${description}%E2%9D%9E%0A`;
--let shareIntro=`Check%20this%20out%20from%20%40SCXN%E2%80%94%0A`;
-
 a(target='_BLANK' href=`https://telegram.me/share/url?url=${thisURL}`)#shareTelegram.shareTo
     img(alt='Share to Telegram' src='https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/jpDAaUblQOXchSJzPKHXRlpS')#telegramShare.shareIcons
 a(target='_BLANK' href=`https://www.tumblr.com/widgets/share/tool?canonicalUrl=${thisURL}`)#shareTumblr.shareTo
@@ -12,11 +8,11 @@ a(target='_BLANK' href=`http://pinterest.com/pin/create/button/?url=${thisURL}`)
     img(alt='Share to Pinterest' src='https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/teaOSXqaxuRJQPfguVRnlMvw')#pinterestShare.shareIcons
 a(target='_BLANK' href=`https://news.ycombinator.com/submitlink?u=${thisURL}`)#shareHackerNews.shareTo
     img(alt='Share to Hacker News' src='https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/SVLDnVNzbcvXNPMPLURUDlsW')#hackerNewsShare.shareIcons
-a(target='_BLANK' href=`https://gab.com/compose?text=${shareIntro}%0A${thisTopic}Read%20on%3A%20&url=${thisURL}%0A%0AThe%20latest%20news%20always%20at%20SCXN.io%2FNews`)#shareGab.shareTo
+a(target='_BLANK' href=`https://gab.com/compose?text=${shareIntro}${thisTopic}More%20at&url=${thisURL}`)#shareGab.shareTo
     img(alt='Share to Gab' src='https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/OItnYjzufLGGJkjeNfKBnPVF')#gabShare.shareIcons
 a(target='_BLANK' href=`https://www.facebook.com/sharer/sharer.php?u=${thisURL}`)#shareFacebook.shareTo
     img(alt='Share to Facebook' src='https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/NMejiZcQHtlvCztevoxgbdwU')#facebookShare.shareIcons
-a(target='_BLANK' href=`mailto:?subject=Check%20this%20out%21%20%E2%80%94%20News%20from%20SCXN&body=${shareIntro}%0A${thisTopic}Read%20on%3A%20${thisURL}%0A%0AThe%20latest%20news%20always%20at%20SCXN.io%2FNews`)#shareEmail.shareTo
+a(target='_BLANK' href=`mailto:?subject=Check%20this%20out%21%20%E2%80%94%20Marketing%20%26%20web%20design-related&body=${shareIntro}${thisTopic}More%20at%20${thisURL}%0A`)#shareEmail.shareTo
     img(alt='Share to Email' src='https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/hakXcKyERGfNQzQdLCdJvhwp')#emailShare.shareIcons
 a(target='_BLANK' href=`https://www.blogger.com/blog_this.pyra?t=&u=${thisURL}`)#shareBlogger.shareTo
     img(alt='Share to Blogger' src='https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/CmnMpuIjTJIGmooINvfxqjSI')#bloggerShare.shareIcons

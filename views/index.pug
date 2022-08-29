@@ -1,191 +1,24 @@
 extends layout
 block content
-  header.poster2.w1.sH.sC.specialBorderBottom
-    h1.w1.textAlignCenter
-      span.logoify.titleSize.tW
-        b SC&shy;
-          i.logoify.special.titleSizePlus X
-        | N
-    h2
-      a(href='#cover')#enter.enter.tW.dS.sM.outlined.caps.bullNosed.exJr.sS Enter
-  nav
-  cover.cover.sH.sC
-    a#cover.dropAnchor
-    section.container-fluid
-      article.pT6.pB6.row
-        margin.d-none.d-sm-block.col-md-1
-        logo.sC.p-0.p-lg-4.p-xl-5.col-sm-5.redLined
-          img(src="https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/fhJgZyamnwxblWaIHAptcwQT", alt="The SCXN Logo").w4
-        menu.sC.col-sm-5
-          h1.w1.textAlignCenter
-            span.logoify.titleSize
-              b SC
-                i.logoify.special.titleSizePlus X
-              | N
-          h2.exJr.b.diminutive.caps.b.lH1.w1.textAlignCenter=sub 
-          p.w3.pT1=description
-          ul.nav.sC.w1.textAlignCenter
-            li.w1
-              a(href='#news').w1 News 
-            li.w1
-              a(href='#about').w1 About 
-            li.w1
-              a(href="#inquiries").w1 Inquiries 
-        margin.col-md-1
-  main#news.w1.poster
-    section.g-0.bgW.container-fluid.pb-md-5
-      article.g-0.d-sm-grid.compositor.d-md-flex.row.pt-md-5
-        margin.col-md-1
-        item.col-md-5.newsSection.slideOver.px-3
-          h6.pt-5.pt-md-0 #{newsDate}
-          h1.lH1 
-            a(href=`${newsUrl}` target='__BLANK') #{newsTitle}
-          !=newsPost
-          | 
-          div.w1 ...
-          small.flex.w1
-            a(href=`${newsUrl}` target='__BLANK').w1.textAlignRight.px-3.p-md-0 Continue reading →
-          div.px-2.pb-4.p-md-0
-            include shareNews
-        item.slideUnder.d-grid.flex.flexCol.flexJustifyStart.col-md-5.compositor
-          img(alt='Image supporting the article' src='https://images.unsplash.com/photo-1477281765962-ef34e8bb0967?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1633&q=80').fB.bullNosed.adapt
-          img(src="https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/dnOnsTqsxqHzXoebkGqOLvwG", alt="Olympic Master and Apprentice Logo").w3.washed.pT2.pB2
-        margin.col-md-1
-    section#about.container-fluid.bgVeil.pT4 
-      article.row 
-        margin.col-md-1 
-        menu.flex.flexCol.FlexJustifyStart.col-sm-5.redLined
-          ul.nav.w1.pB4
-            h1.w1.textAlignRight About
-            li.w1.flex
-              a(href='#philosophy').w1.textAlignRight Philosophy
-            li.w1.flex
-              a(href='#personnel').w1.textAlignRight Personnel 
-            li.w1.flex
-              a(href='https://scxn-america.tumblr.com/tagged/news' target='_BLANK').w1.textAlignRight Our blog
-        aside.flex.flexCol.flexJustifyEnd.col-sm-5.stinger
-          h6.w1.diminutive.textAlignRight
-            a(href=`${stingerLink}` target='_BLANK') 
-              i.fa-solid.fa-comment &nbsp;
-              | #{stingerPubDate}
-          h3.w1 
-            a(href='https://scxn-america.tumblr.com/tagged/stinger' target='_BLANK') #{stingerTitle}
-          !=stingerBody
-        margin.col-md-1
-      article#philosophy.row.pB5
-        margin.col-md-1
-        post.col-md-10
-          h2.beam.pT3.pB3 Philosphy:
-          h6 #{philosophyDate}
-          h1.lH1 
-            a(href=`${philosophyUrl}` target='__BLANK') #{philosophyTitle}
-        margin.col-md-1
-        margin.col-md-1
-        != philosophyPost
-        margin.col-md-1
-        menu.col-md-10
-          small.flex
-            a(href='https://scxn-america.tumblr.com/tagged/philosophy' target='__BLANK').w1.textAlignRight More philosophy →
-          div.textAlignRight
-            include sharePhilosophy 
-        margin.col-md-1
-      article.row.pT6.specialBorderBottom
-        margin.col-md-1
-        item#personnel.col-md-10.pB3
-          h2.beam.w1 Personnel:
-        margin.col-md-1
-        margin.col-md-1
-        article#Kai.col-md-5
-          img(alt='Selfie of Kai' src='https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/hKCqNlnkLdmeaziDHVYHOqRH').selfies.sC
-          h1.textAlignCenter Kai Lavatai 
-          h2.ex.caps.diminutive.textAlignCenter Principal 
-          h3.sM.textAlignCenter Front-end & Social Strategy 
-          p.initial Founding 
-            span.logoifyS SC
-              span.logoifyS.special X
+  include nav
+  header#cover.cover.sH.sC.container-fluid 
+    section.row   
+      article.col-12 
+        item.p-0.m-0.sC
+          a(href='#solution' data-toggle='tooltip' data-placement='top' title='Enter').textAlignCenter.p-0.m-0.tB.charm.hL
+            b.mB.f5 SC
+              i(style='font-size: calc(1em + .6em); display: inline-block;height: .5em;').mB.f2 x
               | N 
-            | in 2016, Kai's primary goal is providing the most practical and freeing web solutions possible.
-        article#Culture.d-none.d-md-flex.col-md-5.poster3.flexCol.flexJustifyEnd.bullNosed
-          h4.w3.tW.sS.textAlignCenter 
-            a(href=`${inspirationUrl}` target='_BLANK').tW "#{inspirationTitle}"
-          p.i.w3.textAlignRight.tW —
-            a(href='https://scxn-america.tumblr.com' target='_BLANK').tW #{inspirationAuthor}
-          h6.w1.tW.diminutive.textAlignRight #{inspirationDate}
-        margin.col-md-1
-        margin.col-md-1
-        article#Phil.col-md-5.pT4
-          img(alt='Selfie of Phil' src='https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/LFvAdobQisXbTZDseWNJLCYf').selfies.sC
-          h1.textAlignCenter Phil Cake
-          h2.ex.caps.diminutive.textAlignCenter Chief Artist
-          h3.sM.textAlignCenter Graphics & Marketing
-          p.initial The core imagination of the team, Phil spends most of his free time fiddling around with the newest camera of his ever-growing collection.
-        article#Amy.col-md-5.pT4.pB4
-          img(alt='Selfie of Amy' src='https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/TZEaDDZVqPFLFXsBpVhcAimI').selfies.sC
-          h1.textAlignCenter Amy Price
-          h2.ex.caps.diminutive.textAlignCenter Project Engineer
-          h3.sM.textAlignCenter Project Management
-          p.initial Recently joining us from an accounting background, when Amy isn't overseeing the successful start-to-finish of our projects, catch her biking up and down the west coast!
-        margin.col-md-1
-        -// Begin row of personnel
-        margin.col-md-1
-        div.col-md-10.row.g-md-0
-          article#Arjuna.col-md-3.pt-1.pt-md-0
-            img(alt='Selfie of Arjuna' src='https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/wuPnNnylPkPYXVgLgeLwIrEs').selfies.sC
-            h1.textAlignCenter.bM Arjuna Virani
-            h2.exJr.caps.diminutive.textAlignCenter Chief Engineer
-            h3.sM.textAlignCenter Back-end, engineering
-            p.initial 'Our on-deck wizard and DJ! When Arjuna isn't detangling code, he's mixing techno music. 
-          article#Dominique.col-md-3.pt-5.pt-md-0
-            img(alt='Selfie of Dominique' src='https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/bPIBwvltvndfLkgncWMZBLZb').selfies.sC
-            h1.textAlignCenter.bM Domi&shy;nique Trieu
-            h2.exJr.caps.diminutive.textAlignCenter Office Manager
-            h3.sM.textAlignCenter Opperations, concept support
-            p.initial Usually the last pair of scrutinizing eyes on a project before shipping, Dominique loves cats.
-          article#Frank.col-md-3.pB6.pt-5.pt-md-0
-            img(alt='Selfie of Frank' src='https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/DRARIVgMrrSCWwHDoNKSvywp').selfies.sC
-            h2.exJr.caps.diminutive.textAlignCenter 
-            h1.textAlignCenter.bM Frank Barnier
-            h2.exJr.caps.diminutive.textAlignCenter Chief Liason
-            h3.sM.textAlignCenter Sales, marketing
-            p.initial Always brightening up the room with laughter, Frank's an expert on where to enjoy the best burgers.  Ask Frank about beer!
-        margin.col-md-1
-  section.sC.sH.container-fluid.pB3
-    a#inquiries.dropAnchor
-    article.row.pT6
-      margin.col-md-1
-      item.col-md-10
-        h2.beam.w1 Inquiries:
-      margin.col-md-1
-      margin.col-md-1
-      item.sC.col-sm-5
-        include contactForm
-      menu#address.sC.col-sm-5
-        div.w3.pB2.pT3
-          ul.nav.tB.w4
-            li 
-              a(href="mailto:scxn@protonmail.com").tB.sans
-                i.fa-solid.fa-envelope &nbsp;
-                | Email 
-            li
-              a(href="tel:+13604775426").tB.sans
-                i.fa-solid.fa-phone &nbsp;
-                | Telephone 
-        h6.w1.textAlignCenter
-          span.textAlignCenter.logoify.pumped SC
-            span.textAlignCenter.logoify.special.pumped X
-            | N<br>
-          span.exJr.caps Solutions
-        p.textAlignCenter —Waterbury Hill—<br>218 Happy Valley Rd, Ste 211<br>Sequim WA 98382
-        small.w4.i Social media—
-        div.textAlignRight
-          include socials
-      margin.col-md-1
-  footer.container-fluid.poster1.sC.sH.textAlignCenter
-    statement.row
-      margin.col-md-4 
-      logo.col-md-4
-        img(src="https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/WxMRMdrDEPRcfzpsolIIkFjR", alt="The SCXN Logo").w5
-      margin.col-md-4 
-      margin.col-md-4 
-      small.tW.dS.col-md-4 © 2022 Waterbury Hill.<br>All Rights Reserved.
-      margin.col-md-4 
+            h2.mM Web Publishing
+  main.sH.container-fluid.maxed
+    section.row.pt-5
+      margin.col-2
+      article.col-md-8.p-md-5
+        item.p-md-5.my-md-5
+          div#solution.textAlignCenter 
+            include logo
+          h2.f2.mM.w1.pb-5.textAlignCenter Solution 
+          include solutionList
+      margin.col-2
+  include footer
+  include ultimate
