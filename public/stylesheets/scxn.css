@@ -381,7 +381,7 @@ ul.nav.grid{
 .bM{font-size: 39pt;}/*bigMini*/
 .mB{font-size: 55pt;}/*mediumBiggie*/
 .caps{text-transform: uppercase;}
-.lower{text-transform: lowercase;}
+.lower{text-transform: lowercase !important;}
 .smallCaps{font-variant:small-caps;}
 .initial::first-letter{
 	float: left;
