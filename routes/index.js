@@ -391,9 +391,34 @@ router.get('/easy', solutions, function(req, res) {
   });
 });
 
-//REDIRECT
-router.get('/Projects', solutions, function(req, res) {
+//REDIRECT to Projects Page
+router.get('/Projects', function(req, res) {
   res.redirect('https://scxn.github.io/projects');
+});
+
+//REDIRECT to projects/contemporaryConsultant
+router.get('/contemporaryConsultant', function(req, res) {
+  res.redirect('https://scxn.github.io/projects/contemporaryConsultant');
+});
+
+//REDIRECT to projects/leBistro
+router.get('/leBistro', function(req, res) {
+  res.redirect('https://scxn.github.io/lebistro');
+});
+
+//REDIRECT to projects/theGetaway
+router.get('/theGetaway', function(req, res) {
+  res.redirect('https://scxn.github.io/theGetaway');
+});
+
+//REDIRECT to projects/OMaA
+router.get('/OMaA', function(req, res) {
+  res.redirect('https://scxn.github.io/OMaA');
+});
+
+//REDIRECT to projects/birdhouseStudio
+router.get('/birdhouseStudio', function(req, res) {
+  res.redirect('https://scxn.github.io/birdhouseStudio');
 });
 
 //POST messages
