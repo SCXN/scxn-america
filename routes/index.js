@@ -403,22 +403,22 @@ router.get('/contemporaryConsultant', function(req, res) {
 
 //REDIRECT to projects/leBistro
 router.get('/leBistro', function(req, res) {
-  res.redirect('https://scxn.github.io/lebistro');
+  res.redirect('https://scxn.github.io/projects/lebistro');
 });
 
 //REDIRECT to projects/theGetaway
 router.get('/theGetaway', function(req, res) {
-  res.redirect('https://scxn.github.io/theGetaway');
+  res.redirect('https://scxn.github.io/projects/theGetaway');
 });
 
 //REDIRECT to projects/OMaA
 router.get('/OMaA', function(req, res) {
-  res.redirect('https://scxn.github.io/OMaA');
+  res.redirect('https://scxn.github.io/projects/OMaA');
 });
 
 //REDIRECT to projects/birdhouseStudio
 router.get('/birdhouseStudio', function(req, res) {
-  res.redirect('https://scxn.github.io/birdhouseStudio');
+  res.redirect('https://scxn.github.io/projects/birdhouseStudio');
 });
 
 //POST messages
