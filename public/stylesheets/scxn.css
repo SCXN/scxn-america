@@ -574,8 +574,8 @@ code::-webkit-scrollbar,
 a.noHover:hover {background-color:transparent;}
 a.noDecoration:hover {text-decoration: none;}
 a.tB:visited,a.tB:hover{color: var(--c3);}
-a.tW:visited{color: white;}a.tW:hover{color: var(--c2);}
-a.tW:hover{background-color: var(--cH);}
+a.tW:visited{color: white;}
+a.tW:hover{color: white; background-color: var(--cH);}
 
 
 div.galleryItem::-webkit-scrollbar{width: 10px;}

@@ -145,12 +145,12 @@ function solutions(req,res,next){
 //GET home page
 router.get('/', solutions, function(req, res, next) {
   res.render('index', { 
-    title: `SCXN Web Design & Publishing`,
-    description: 'Boutique branding, web strategy, and limited-run souvenirs.  Say more with one-of-a-kind keepsakes and the exotic sports car of websites.',
+    title: 'SCXN Web Design & Publishing',
+    description: 'Boutique branding, web strategy, and limited-run souvenirs.  Say more with one-of-a-kind keepsakes and websites that perform.',
     openGraphDescription: 'Explore the 7-step solution for successful web publishing.  Stragegize with SCXN.',
     openGraphType:'website',
     openGraphLink:'https://www.scxn.io',
-    openGraphImg:'/images/index.png'
+    openGraphImg:'https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/dLPMyiXzFHfefPONkMXtVxbA'
   });
   next();
 });
@@ -389,6 +389,11 @@ router.get('/easy', solutions, function(req, res) {
     openGraphLink:'https://www.scxn.io/Easy',
     openGraphImg:'/images/easy.png'
   });
+});
+
+//REDIRECT
+router.get('/Projects', solutions, function(req, res) {
+  res.redirect('https:scxn.github.io/projects');
 });
 
 //POST messages
