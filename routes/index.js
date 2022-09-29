@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const fs = require("fs");
 require('dotenv').config();
 
 //For contact form
@@ -154,6 +155,36 @@ router.get('/', solutions, function(req, res, next) {
   });
   next();
 });
+
+//GET Project Demos
+router.get('/demos', solutions,function(req, res) {
+  let ingredients=[];
+  let directions=[];
+  let detailedInstructions=[];
+  let results=[];
+  let fyi=[];
+  let fyiReference=[];
+  let fyiReferenceLink=[];
+  for(let i=0; i<res.locals.ingredients.length;i++){
+    ingredients.push(res.locals.ingredients[i]);
+    directions.push(res.locals.directions[i]);
+    detailedInstructions.push(res.locals.detailedInstructions[i]);
+    results.push(res.locals.results[i]);
+    fyi.push(res.locals.fyi[i]);
+    fyiReference.push(res.locals.fyiReference[i]);
+    fyiReferenceLink.push(res.locals.fyiReferenceLink[i]);
+  }
+  res.render('demos', { 
+    title: 'SCXN Web Design & Publishing',
+    description: 'Boutique branding, web strategy, and limited-run souvenirs.  Say more with one-of-a-kind keepsakes and websites that perform.',
+    openGraphDescription: 'Explore the 7-step solution for successful web publishing.  Stragegize with SCXN.',
+    openGraphType:'website',
+    openGraphLink:'https://www.scxn.io/demos',
+    openGraphImg:'https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/dLPMyiXzFHfefPONkMXtVxbA'
+  });
+  next();
+});
+
 
 //GET News page
 router.get('/news', news, function(req, res) {
@@ -391,35 +422,35 @@ router.get('/easy', solutions, function(req, res) {
   });
 });
 
-//REDIRECT to Projects Page
-router.get('/Projects', function(req, res) {
-  res.redirect('https://scxn.github.io/projects');
-});
+// //REDIRECT to Projects Page
+// router.get('/Projects', function(req, res) {
+//   res.redirect('https://scxn.github.io/projects');
+// });
 
-//REDIRECT to projects/contemporaryConsultant
-router.get('/contemporaryConsultant', function(req, res) {
-  res.redirect('https://scxn.github.io/projects/contemporaryConsultant');
-});
+// //REDIRECT to projects/contemporaryConsultant
+// router.get('/contemporaryConsultant', function(req, res) {
+//   res.redirect('https://scxn.github.io/projects/contemporaryConsultant');
+// });
 
-//REDIRECT to projects/leBistro
-router.get('/leBistro', function(req, res) {
-  res.redirect('https://scxn.github.io/projects/lebistro');
-});
+// //REDIRECT to projects/leBistro
+// router.get('/leBistro', function(req, res) {
+//   res.redirect('https://scxn.github.io/projects/lebistro');
+// });
 
-//REDIRECT to projects/theGetaway
-router.get('/theGetaway', function(req, res) {
-  res.redirect('https://scxn.github.io/projects/theGetaway');
-});
+// //REDIRECT to projects/theGetaway
+// router.get('/theGetaway', function(req, res) {
+//   res.redirect('https://scxn.github.io/projects/theGetaway');
+// });
 
-//REDIRECT to projects/OMaA
-router.get('/OMaA', function(req, res) {
-  res.redirect('https://scxn.github.io/projects/OMaA');
-});
+// //REDIRECT to projects/OMaA
+// router.get('/OMaA', function(req, res) {
+//   res.redirect('https://scxn.github.io/projects/OMaA');
+// });
 
-//REDIRECT to projects/birdhouseStudio
-router.get('/birdhouseStudio', function(req, res) {
-  res.redirect('https://scxn.github.io/projects/birdhouseStudio');
-});
+// //REDIRECT to projects/birdhouseStudio
+// router.get('/birdhouseStudio', function(req, res) {
+//   res.redirect('https://scxn.github.io/projects/birdhouseStudio');
+// });
 
 //POST messages
 router.post('/send', (req, res, ) => {
@@ -447,5 +478,22 @@ router.post('/send', (req, res, ) => {
     });
   });
 });
-
+// Route that serves /projects/index.html
+router.get('/websites', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  // Capture the contents of index.html in a variable
+  let fileContents = fs.readFileSync("./public/projects/index.html", {encoding: "utf8"});
+  // Send a res to the client with the index.html file
+  res.write(fileContents);
+  res.end();
+});
+// Route that serves /projects/index.html
+router.get('/projects', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  // Capture the contents of index.html in a variable
+  let fileContents = fs.readFileSync("./public/projects/index.html", {encoding: "utf8"});
+  // Send a res to the client with the index.html file
+  res.write(fileContents);
+  res.end();
+});
 module.exports = router;

@@ -1,0 +1,11 @@
+-let projectTitleListHeadings=['love','baby','sweet','vanilla','chocolate','pudding','cakes'];
+-let sweet=['Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat sed ut voluptates numquam accusamus quas.','Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat sed ut voluptates numquam accusamus quas.','Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat sed ut voluptates numquam accusamus quas.','Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat sed ut voluptates numquam accusamus quas.','Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat sed ut voluptates numquam accusamus quas.','Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat sed ut voluptates numquam accusamus quas.','Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat sed ut voluptates numquam accusamus quas.'];
+ol#accordion.projectsList.list-group.projectsList.sexy.mb-4
+    each projectTitleListHeading, index in projectTitleListHeadings 
+        li(class=`${projectTitleListHeading}`).py-2.ms-2.nW.h100.special.flex
+            a(href=`#${projectTitleListHeading}` role="button" data-toggle="collapse" aria-expanded="true" aria-controls=`${projectTitleListHeading}`).tB.diminutive.lH1
+                div.projectTitleListHeadingCase.p-0.m-0.flex.flexJustifyLeft.flexAlignCenter.diminutive #{projectTitleListHeading}
+            item(id=`${projectTitleListHeading}` class=`${projectTitleListHeading}` aria-labelledby=`heading${projectTitleListHeading}` data-parent=`#accordion`).flake.collapse.green
+                p.py-5.px-0.mx-0.directions=sweet[index]
+                div.w1.textAlignRight.mb-1.py-5
+                    a(href=`/${projectTitleListHeading}`).tB.outlined.noHover.wB.me-5 More→

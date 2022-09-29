@@ -5,6 +5,21 @@
   }
 }
 @media (max-width: 575px){
+    .projectsFeature{
+        font-size: 9pt;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .projectsFeatureDate{
+        font-size: 9pt;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .insane{
+        font-size: 45pt;
+    }
     .feature figure:nth-last-of-type(2) {
         float: none;width: 100%;
     }
@@ -63,6 +78,7 @@
     .solutionsPage #accordion  li a .ingredientCase{
 	display: none;
 }
+.projectsList,
 .otherArticlesMenu{
     border-radius: 1em;
     display: flex;
@@ -96,6 +112,7 @@
     }
 }
 @media (max-height: 500px){
+
     ol#accordion{
         display: flex;
         flex-direction: row;

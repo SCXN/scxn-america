@@ -3,6 +3,7 @@
         
         $(".se-pre-con").fadeOut("slow");
     }
+// Solutions Accordion+
 let details = document.querySelectorAll('.ingredientDetails');
 let solutions = document.querySelectorAll('.solutions');
 
@@ -29,7 +30,27 @@ for(let i=0;i<solutions.length;i++){
         }
     }
 }
+// Projects Accordion+
+let detailsProjects = document.querySelectorAll('.pupDetails');
+let projectListItems = document.querySelectorAll('.projectListItems');
 
+let landingDetailsProjects = document.querySelector('.landingDetailsProjects');
+let landingStingerProjects= document.querySelector('.landingStingerProjects');
+
+
+
+for(let i=0;i<projectListItems.length;i++){
+    projectListItems[i].onclick=function(){
+        detailsProjects[i].classList.replace('hide','.show');
+        landingDetailsProjects.classList.add('hide');
+        landingStingerProjects.classList.add('hide');
+        let otherDetails=Object.values(detailsProjects).filter(value => (value !== detailsProjects[i]));
+        otherDetails.forEach(hideOtherDetails);
+        function hideOtherDetails(item){
+            item.classList.replace('show','hide');
+        }
+    }
+}
 //Tooltips
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()

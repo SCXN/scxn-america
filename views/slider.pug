@@ -1,0 +1,21 @@
+div(data-ride='carousel')#myCarousel.carousel.slide.carousel-fade.p-0.m-0
+  ol.carousel-indicators  
+    li(data-target='#myCarousel' data-slide-to='0').active 
+    li(data-target='#myCarousel' data-slide-to='1') 
+    li(data-target='#myCarousel' data-slide-to='2') 
+  div.carousel-inner
+    div.sC.carousel-item.active
+      a(href='/projects/lebistro/lunch#lunch')
+        img(src='https://images.unsplash.com/photo-1574848296471-28f79a036f79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80' alt='First slide')
+    div.carousel-item
+      a(href='/projects/lebistro/starters#starters')
+        img(src='https://images.unsplash.com/photo-1581094485546-7910e5a5a599?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80' alt='Second slide')
+    div.carousel-item
+      a(href='/projects/lebistro/dinner#dinner')
+        img(src='https://images.unsplash.com/photo-1621508105922-531f3fd99acb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='Second slide')
+  a(href='#myCarousel' role='button' data-slide='prev').carousel-control-prev
+    span(aria-hidden='true').carousel-control-prev-icon
+      span.sr-only Previous
+  a(href='#myCarousel' role='button' data-slide='next').carousel-control-next
+    span(aria-hidden='true').carousel-control-next-icon
+      span.sr-only Next

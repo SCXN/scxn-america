@@ -762,6 +762,7 @@ item.figure figure:first-of-type img{
 }
 .shareIcons{
 	width: 36px; height: 36px;
+	margin-right: -5.2px;
 }
 span.bullNosed{
 	border-radius: 4.5px;
@@ -942,4 +943,36 @@ main.container-fluid.maxed.pt-5.mt-5{
 	font: var(--f2);
 	font-size: 17pt;
 	color: white;
+}
+.projectsList{
+	flex-direction: column;
+}
+.projectsList >li{
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.vignettes{
+	height: 100%;
+}
+
+.shareIconsStatic,
+.socialsStatic{
+	width: 36px!important; 
+	height: 36px!important;
+	margin-left: -4.5px !important;
+	margin-right: -4.5px !important;
+	padding: 0!important;
+	line-height: 1.1em;
+}
+.shareToStatic{margin: -9px!important;	padding: 0!important;
+	max-height: 36px!important;
+	height:36px!important;width: 36px!important;
+}
+.lHStatic{
+	line-height: 0px;
+	letter-spacing: 0px;
+}
+.insane{
+	font-size: 72pt;
 }

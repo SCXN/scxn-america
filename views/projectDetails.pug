@@ -1,0 +1,16 @@
+-let projectTitles=['love','baby','sweet','vanilla','chocolate','pudding','cakes'];
+
+-let detailedPops=['yummy','donuts','sweets','yummies','cuddle','teddy','fuzzy'];
+-let projectFYIs=['Greatness','Love','Happiness','Health','Loveliness','Beauty','Passion'];
+-let projectImgs=['/images/vignette_abbyBytes.png','/images/vignette_birdhouseStudio.png','/images/vignette_cityUltra.png','/images/vignette_contemporaryConsultant.png','/images/vignette_leBistro.png','/images/vignette_OMaA.png','/images/vignette_theGetaway.png'];
+each projectTitle, index in projectTitles
+    div(id=`${projectTitle}`).projectStingers.hide
+        h2.bM.caps #{projectTitle}
+        img(src=`${projectImgs[index]}`).w3
+        p.dwarf.lH3 #{detailedPops[index]}
+        p.beam.f2.sM.lH3.mt-5.p-4.ps-5 #{results[index]}
+        aside.w1.textAlignRight.mb-5.pt-5
+            a(href=`/${ingredients[index+1]}`).tB.outlined.noHover.wB Launch→
+        aside.textAlignRight.w1.mb-4
+            h2.sM Share "#{projectTitle}", Solution #{index+1}:
+            include share
