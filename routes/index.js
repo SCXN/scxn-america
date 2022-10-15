@@ -442,10 +442,10 @@ router.get('/easy', solutions, function(req, res) {
 //   res.redirect('https://scxn.github.io/projects/contemporaryConsultant');
 // });
 
-// //REDIRECT to projects/leBistro
-// router.get('/leBistro', function(req, res) {
-//   res.redirect('https://scxn.github.io/projects/lebistro');
-// });
+//REDIRECT to projects/leBistro
+router.get('/leBistro', function(req, res) {
+  res.redirect('https://scxn.io/projects/lebistro');
+});
 
 // //REDIRECT to projects/theGetaway
 // router.get('/theGetaway', function(req, res) {
