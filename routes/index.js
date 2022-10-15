@@ -421,7 +421,17 @@ router.get('/easy', solutions, function(req, res) {
     openGraphImg:'/images/easy.png'
   });
 });
-
+// //GET Oasis page
+// router.get('/oasis', function(req, res) {
+//   res.render('oasis', { 
+//     title: `The Oasis Bar & Grill | SCXN Web Design & Publishing`,
+//     description:'Hand-selected soltutions for The Oasis of Sequim, WA',
+//     openGraphDescription: `Hand-selected solutions for The Oasis Bar & Grill, Sequim, WA`,
+//     openGraphType:'website',
+//     openGraphLink:'https://www.scxn.io/oasis',
+//     openGraphImg:'/images/index.png'
+//   });
+// });
 // //REDIRECT to Projects Page
 // router.get('/Projects', function(req, res) {
 //   res.redirect('https://scxn.github.io/projects');
@@ -492,6 +502,15 @@ router.get('/projects', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   // Capture the contents of index.html in a variable
   let fileContents = fs.readFileSync("./public/projects/index.html", {encoding: "utf8"});
+  // Send a res to the client with the index.html file
+  res.write(fileContents);
+  res.end();
+});
+// Route that serves /oasis/index.html
+router.get('/oasis', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  // Capture the contents of index.html in a variable
+  let fileContents = fs.readFileSync("./oasis/index.html", {encoding: "utf8"});
   // Send a res to the client with the index.html file
   res.write(fileContents);
   res.end();
