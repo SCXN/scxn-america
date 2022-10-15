@@ -443,7 +443,7 @@ router.get('/easy', solutions, function(req, res) {
 // });
 
 //REDIRECT to projects/leBistro
-router.get('/leBistro', function(req, res) {
+router.get('/projects/leBistro', function(req, res) {
   res.redirect('https://scxn.io/projects/lebistro');
 });
 
