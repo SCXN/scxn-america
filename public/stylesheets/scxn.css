@@ -264,8 +264,8 @@ ul.nav.grid{
 	transform: translateY(-50vh);
 }
 .clear{margin: 0 auto; padding: 0;}
-.borderColorWhite{border-color: white;}
-.borderColorBlack{border-color: black;}
+.borderColorWhite{border-color: white!important;}
+.borderColorBlack{border-color: black!important;}
 /*text flip white OR black*/
 .tW{color: white;}	.tB{color: black;}
 /*backGround flip white OR black**/
@@ -295,6 +295,7 @@ ul.nav.grid{
 
 /*italicize & bold*/
 .i{font-style: italic;}
+.clearItalic{font-style:normal!important;}
 .b{font-weight:900;}
 .lighter{font-weight:lighter;}
 /*sizing*/
@@ -312,6 +313,7 @@ ul.nav.grid{
 	height: 100%;
 	min-height: 100vh;
 }
+.h45{height: 100% ;max-height: 45vh; min-height: 250px;}
 .h100{
 	height: 100%;
 }
@@ -366,13 +368,16 @@ ul.nav.grid{
 .hL2{background-color: rgba(0, 255, 255, 0.588);}/*Highlighter*/
 .hL3{background-color: red;}
 .nW{white-space: nowrap;}/*noWrap*/
-.strictX{overflow-x: hidden;}
-.strictY{overflow-y: hidden;}
+.strictX{overflow-x: hidden!important;}
+.strictY{overflow-y: hidden!important;}
 .bgW{background-color:white;}
 .bg1{background-color: var(--c6);}
 .bg2{background-color: var(--c5);}
 .ex{letter-spacing: 2vw;}
 .exJr{letter-spacing:1vw;}
+.exJr2{letter-spacing:.45vw;}
+.exJr3{letter-spacing:.123em;}
+.exClear{letter-spacing:0em;}
 .diminutive{font-size: 9.99pt;}
 .dwarf{font-size: 13pt;}
 .wiener{font-size: 6pt;}.wiener.big{font-size: 6pt;}
@@ -380,7 +385,10 @@ ul.nav.grid{
 .mM{font-size: 27pt;}/*mediumMini*/
 .bM{font-size: 39pt;}/*bigMini*/
 .mB{font-size: 55pt;}/*mediumBiggie*/
+.almostCray{font-size: 66pt;}
+.cray{font-size: 72pt;}
 .caps{text-transform: uppercase;}
+.clearCaps{text-transform: none!important;}
 .lower{text-transform: lowercase !important;}
 .smallCaps{font-variant:small-caps;}
 .initial::first-letter{
@@ -480,6 +488,9 @@ ol{
   }
 .maxed{max-width: 1120px;}
 /*Style*/
+.shear575px{
+	transition: 1s ease-out;
+}
 .nav-up {
     top: -87px;
 }
@@ -627,10 +638,6 @@ logo.bijou{
 }
 .mega{
 	width: 100%;
-    position: absolute;
-    top: 200%;
-    left: 0vw;
-    transform: translate(-50%, -50%);
     z-index: -1;
 }
 .ultra{
@@ -776,6 +783,8 @@ span.bullNosed a:last-child img{
 	border-top-right-radius: 4.5px;
 	border-bottom-right-radius: 4.5px;
 }
+.reverseBased{border-top: 1px solid rgba(0, 0, 0, 0.123)}
+.based{border-bottom: 1px solid rgba(0, 0, 0, 0.123)}
 #returnHomeCase{
 	position: fixed;
 	bottom: 42px;

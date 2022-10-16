@@ -1,3 +1,8 @@
+@media (max-height: 393px){
+    .peopleBG{
+        transform: translateY(-27%) scale(120%);
+    }
+}
 @media (orientation: portrait){
 .galleryItem figure{
 	width: 33.27%;
@@ -5,6 +10,13 @@
   }
 }
 @media (max-width: 575px){
+    .sM575px{
+        font-size: 11pt;
+    }
+    .shear575px{
+        background-color: rgba(0, 0, 0, 0.58);
+        backdrop-filter: blur(2px) saturate(200%);
+    }
     .projectsFeature{
         font-size: 9pt;
         display: flex;
@@ -57,6 +69,12 @@
     }
 }
 @media (max-width: 767px){
+    .almostCray{
+        font-size: 33pt;
+    }
+    .cray{
+        font-size: 48pt;
+    }
     .textAlignLeft.smallCenter{text-align: center;}
     .engagingPage #accordion  li item.flake,
     .responsivePage #accordion  li item.flake,
@@ -97,15 +115,6 @@
     }
     .shareIcons.birdShares{
         width:45px;height: 45px;
-    }
-    .mega{
-        width: 100%;
-        position: relative;
-        border-radius: 4.5px;
-    }
-    .mega{
-        top: 147%;
-        left: 0vw;
     }
     .col3{
         column-count: 1;

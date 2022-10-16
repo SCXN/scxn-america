@@ -421,6 +421,33 @@ router.get('/easy', solutions, function(req, res) {
     openGraphImg:'/images/easy.png'
   });
 });
+
+//GET People page
+router.get('/people', function(req, res, next) {
+  res.render('people', { 
+    title: 'SCXN Web Design & Publishing',
+    description: 'Boutique branding, web strategy, and limited-run souvenirs.  Say more with one-of-a-kind keepsakes and websites that perform.',
+    openGraphDescription: 'Explore the 7-step solution for successful web publishing.  Stragegize with SCXN.',
+    openGraphType:'website',
+    openGraphLink:'https://www.scxn.io',
+    openGraphImg:'https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/dLPMyiXzFHfefPONkMXtVxbA'
+  });
+  next();
+});
+
+//GET Print page
+router.get('/print', function(req, res, next) {
+  res.render('print', { 
+    title: 'SCXN Web Design & Publishing',
+    description: 'Boutique branding, web strategy, and limited-run souvenirs.  Say more with one-of-a-kind keepsakes and websites that perform.',
+    openGraphDescription: 'Explore the 7-step solution for successful web publishing.  Stragegize with SCXN.',
+    openGraphType:'website',
+    openGraphLink:'https://www.scxn.io',
+    openGraphImg:'https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/dLPMyiXzFHfefPONkMXtVxbA'
+  });
+  next();
+});
+
 // //GET Oasis page
 // router.get('/oasis', function(req, res) {
 //   res.render('oasis', { 
@@ -446,6 +473,11 @@ router.get('/easy', solutions, function(req, res) {
 router.get('/projects/leBistro', function(req, res) {
   res.redirect('https://scxn.io/projects/lebistro');
 });
+
+// //REDIRECT to 'design'
+// router.get('/design', function(req, res) {
+//   res.redirect('https://scxn.io/websites');
+// });
 
 // //REDIRECT to projects/theGetaway
 // router.get('/theGetaway', function(req, res) {
