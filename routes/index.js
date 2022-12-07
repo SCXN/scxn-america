@@ -12,68 +12,8 @@ const multiparty = require('multiparty');
 const tumblr = require('tumblr.js');
 const { DateTime } = require('luxon');
 
-//Connnect to outlook via nodemailer
-const transporter = nodemailer.createTransport({
-  host: "smtp-mail.outlook.com", //replace with your email provider
-  port: 587,
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.PASS,
-  },
-  tls: {
-    // do not fail on invalid certs
-    rejectUnauthorized: false
-  },
-});
 
-//Verify connection configuration of nodemailer
-transporter.verify(function (error, success) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Server is ready to take our messages");
-  }
-});
 
-//Connect to tumblr.js
-const tumblrClient = tumblr.createClient({
-  credentials:{consumer_key: process.env.TCK,
-  consumer_secret: process.env.TCS,
-  token: process.env.TT,
-  token_secret: process.env.TSS
-}, returnPromises: true,});
-
-//Get 'news' posts from tumblr
-function news(req,res,next){
-  tumblrClient.blogPosts('scxn-blog', {type: 'text', tag: ['news']}).then(resp=>{
-   res.locals.posts=resp.posts;
-    let newsTitles=[];
-    let newsDates=[];
-    let newsAuthors=[];
-    let newsBodies=[];
-    let newsTopics=[];
-    let newsLinks=[];
-    resp.posts.forEach(parse);
-    function parse(item){
-      newsTitles.push(item.title);
-      newsDates.push(DateTime.fromSQL(item.date).toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY));
-      newsAuthors.push(item.blog.title);
-      newsBodies.push(item.body);
-      newsTopics.push(item.tags);
-      newsLinks.push(item.post_url);
-    }
-    res.locals.newsTitles=newsTitles; 
-    res.locals.newsDates=newsDates;
-    res.locals.newsAuthors=newsAuthors;
-    res.locals.newsBodies=newsBodies;
-    res.locals.newsTopics=newsTopics;
-    res.locals.newsLinks=newsLinks;
-    // console.log(res.locals.posts);
-    next();
-  }).catch(e => {
-    console.log(e);
-    });
-}
 
 //List of solutions 
 function solutions(req,res,next){
@@ -186,17 +126,6 @@ router.get('/demos', solutions,function(req, res) {
 });
 
 
-//GET News page
-router.get('/news', news, function(req, res) {
-  res.render('news', { 
-    title: `News | SCXN Web Design & Publishing`,
-    description: res.locals.newsTitles[0],
-    openGraphDescription: res.locals.newsBodies[0],
-    openGraphType:'article',
-    openGraphLink:'https://www.scxn.io/News',
-    openGraphImg:'/images/news.png'
-  });
-});
 
 //GET Solution 0, "Solution" page
 router.get('/solution', solutions, function(req, res) {
@@ -448,6 +377,20 @@ router.get('/print', function(req, res, next) {
   next();
 });
 
+//GET Print page
+router.get('/apm', function(req, res, next) {
+  res.render('apm', { 
+    title: 'SCXN Web Design & Publishing',
+    description: 'Boutique branding, web strategy, and limited-run souvenirs.  Say more with one-of-a-kind keepsakes and websites that perform.',
+    openGraphDescription: 'Explore the 7-step solution for successful web publishing.  Stragegize with SCXN.',
+    openGraphType:'website',
+    openGraphLink:'https://www.scxn.io',
+    openGraphImg:'https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/dLPMyiXzFHfefPONkMXtVxbA',
+    backGround1:`https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`
+  });
+  next();
+});
+
 // //GET Oasis page
 // router.get('/oasis', function(req, res) {
 //   res.render('oasis', { 
@@ -494,32 +437,7 @@ router.get('/projects/leBistro', function(req, res) {
 //   res.redirect('https://scxn.github.io/projects/birdhouseStudio');
 // });
 
-//POST messages
-router.post('/send', (req, res, ) => {
-  let form = new multiparty.Form();
-  let data = {};
-  form.parse(req, function (err, fields) {
-    Object.keys(fields).forEach(function (property) {
-      data[property] = fields[property].toString();
-    });
-    console.log(data);
-    const mail = {
-      sender: `${data.name} <${data.address}>`,
-      to: process.env.EMAIL, // receiver email,
-      subject: data.subject,
-      text: `From:\n${data.name} <email: ${data.address}> \n${data.message}`,
-    };
-    transporter.sendMail(mail, (err, data) => {
-      if (err) {
-        console.log(err);
-        //res.status(500).send("Something went wrong.");
-        res.render('yikes');
-      } else {
-        res.render('thanksForYourComment');
-      }
-    });
-  });
-});
+
 // Route that serves /projects/index.html
 router.get('/websites', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
@@ -546,5 +464,107 @@ router.get('/oasis', (req, res) => {
   // Send a res to the client with the index.html file
   res.write(fileContents);
   res.end();
+});
+
+//Connect to tumblr.js
+const tumblrClient = tumblr.createClient({
+  credentials:{consumer_key: process.env.TCK,
+  consumer_secret: process.env.TCS,
+  token: process.env.TT,
+  token_secret: process.env.TSS
+}, returnPromises: true,});
+
+//Get 'news' posts from tumblr
+function news(req,res,next){
+  tumblrClient.blogPosts('scxn-blog', {type: 'text', tag: ['news']}).then(resp=>{
+   res.locals.posts=resp.posts;
+    let newsTitles=[];
+    let newsDates=[];
+    let newsAuthors=[];
+    let newsBodies=[];
+    let newsTopics=[];
+    let newsLinks=[];
+    resp.posts.forEach(parse);
+    function parse(item){
+      newsTitles.push(item.title);
+      newsDates.push(DateTime.fromSQL(item.date).toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY));
+      newsAuthors.push(item.blog.title);
+      newsBodies.push(item.body);
+      newsTopics.push(item.tags);
+      newsLinks.push(item.post_url);
+    }
+    res.locals.newsTitles=newsTitles; 
+    res.locals.newsDates=newsDates;
+    res.locals.newsAuthors=newsAuthors;
+    res.locals.newsBodies=newsBodies;
+    res.locals.newsTopics=newsTopics;
+    res.locals.newsLinks=newsLinks;
+    // console.log(res.locals.posts);
+    next();
+  }).catch(e => {
+    console.log(e);
+    });
+}
+
+//GET News page
+router.get('/news', news, function(req, res) {
+  res.render('news', { 
+    title: `News | SCXN Web Design & Publishing`,
+    description: res.locals.newsTitles[0],
+    openGraphDescription: res.locals.newsBodies[0],
+    openGraphType:'article',
+    openGraphLink:'https://www.scxn.io/News',
+    openGraphImg:'/images/news.png'
+  });
+});
+
+//Connnect to outlook via nodemailer
+const transporter = nodemailer.createTransport({
+  host: "smtp-mail.outlook.com", //replace with your email provider
+  port: 587,
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASS,
+  },
+  tls: {
+    // do not fail on invalid certs
+    rejectUnauthorized: false
+  },
+});
+
+//Verify connection configuration of nodemailer
+transporter.verify(function (error, success) {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Server is ready to take our messages");
+  }
+});
+
+//POST messages
+router.post('/send', (req, res, ) => {
+  let form = new multiparty.Form();
+  let data = {};
+  form.parse(req, function (err, fields) {
+    Object.keys(fields).forEach(function (property) {
+      data[property] = fields[property].toString();
+    });
+    console.log(data);
+    const mail = {
+      sender: `${data.name} <${data.address}>`,
+      to: process.env.EMAIL, // receiver email,
+      subject: data.subject,
+      text: `From:\n${data.name} <email: ${data.address}> \n${data.message}`,
+    };
+    transporter.sendMail(mail, (err, data) => {
+      if (err) {
+        console.log(err);
+        //res.status(500).send("Something went wrong.");
+        res.render('yikes');
+      } else {
+        res.render('thanksForYourComment');
+      }
+    });
+  });
 });
 module.exports = router;
